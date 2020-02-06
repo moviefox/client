@@ -58,3 +58,19 @@ body {
 .light-blue {
   color: #4f9fcf;
 }
+
+#gsignin {
+	margin: 200px;
+	text-align: center;
+}
+
+#signinCard {
+	width: 100%;
+	height: auto;
+}
+
+#signinCard img {
+	width: 15%;
+	height: auto;
+	margin: 25px;
+}
