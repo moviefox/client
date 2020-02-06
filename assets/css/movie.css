@@ -10,3 +10,19 @@ body {
   margin: 0;
   padding: 0;
 }
+
+#gsignin {
+	margin: 200px;
+	text-align: center;
+}
+
+#signinCard {
+	width: 100%;
+	height: auto;
+}
+
+#signinCard img {
+	width: 15%;
+	height: auto;
+	margin: 25px;
+}

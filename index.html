@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="google-signin-client_id" content="725572792919-0vc42lvvqnmb4ffve2gidctnsavp3b4i.apps.googleusercontent.com">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -13,6 +14,27 @@
 </head>
 
 <body>
+
+  <!-- google sign in -->
+  <div id="gsignin" class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="d-flex justify-content-center">
+        <div class="card text-center bg-light" id="signinCard">
+          <div class="card-body">
+            <h5 class="card-title">MOVIEFOX</h5>
+            <img src="https://www.freepnglogos.com/uploads/fox-png-23.png" class="rounded mx-auto d-block" alt="logo">
+            <p class="card-text">Use Google account for simple sign in</p>
+            <div class="d-flex justify-content-center">
+              <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#" onclick="signOut();">Google Sign out test</a>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
@@ -21,6 +43,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script src="./assets/scripts/movie.js" type="text/javascript"></script>
 </body>
 
