@@ -15,12 +15,25 @@
 
 <body>
 
+  <!-- google sign in -->
   <div id="gsignin" class="row">
-    <div class="row-md-4"></div>
-    <div class="row-md-4">
-
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="d-flex justify-content-center">
+        <div class="card text-center bg-light" id="signinCard">
+          <div class="card-body">
+            <h5 class="card-title">MOVIEFOX</h5>
+            <img src="https://www.freepnglogos.com/uploads/fox-png-23.png" class="rounded mx-auto d-block" alt="logo">
+            <p class="card-text">Use Google account for simple sign in</p>
+            <div class="d-flex justify-content-center">
+              <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#" onclick="signOut();">Google Sign out test</a>
     </div>
-    <div class="row-md-4"></div>
+    <div class="col-md-3"></div>
   </div>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
