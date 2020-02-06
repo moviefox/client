@@ -1,7 +1,3 @@
-$(document).ready(() => {
-
-})
-
 //google sign in
 function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile()
@@ -13,7 +9,7 @@ function onSignIn(googleUser) {
 
   $.ajax('http://localhost:3000/???????????????????????????????????', {
     method: 'POST',
-    headers: {id_token}
+    headers: { id_token }
   })
     .done(response => {
       //terima token
@@ -33,3 +29,19 @@ function signOut() {
     console.log('User signed out.');
   });
 }
+
+let page = 1
+$(document).ready(() => {
+  renderCarousel(page)
+  $('#movie-carousel').carousel()
+  getPopularMovies(page)
+
+  $(window).on('scroll', () => {
+    if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+      page = page + 1
+      getPopularMovies(page)
+    }
+  })
+})
+
+
