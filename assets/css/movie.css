@@ -74,3 +74,51 @@ body {
 	height: auto;
 	margin: 25px;
 }
+
+.dropdown-menu {
+  left: -60px;
+}
+
+#result-search-movie {
+  margin-top: 50px;
+}
+
+#result-movie {
+  flex-direction: column;
+  padding-top: 30px;
+}
+
+.found-movie {
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.found-movie-rating {
+  margin-top: 10px;
+}
+
+.found-movie-rating h6 {
+  color: #28a745!important;
+}
+
+.rating-star {
+  color: #ffcc33;
+}
+
+.score {
+  margin-left: 5px;
+}
+
+.findHeader {
+  border: none;
+  color: #202020;
+  font-size: 17px;
+  font-weight: normal;
+  padding-bottom: 0;
+}
+
+.findSearchTerm {
+  color: #333;
+  font-size: 17px;
+  font-weight: bold;
+}
