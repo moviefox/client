@@ -66,6 +66,7 @@ const renderSearchMovie = () => {
   title = '"' + title + '"'
   $('span.findSearchTerm').text(title)
   $('#result-search-movie').show()
+  $('#movie-details').hide()
   searchMovie(title, pageSearch)
 }
 
@@ -96,7 +97,7 @@ const getDetail = (movie) => {
       }
     })
     .fail(err => {
-
+      console.log(err)
     })
 }
 
