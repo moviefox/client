@@ -35,10 +35,11 @@ const getPopularMovies = (page) => {
       let contentHtml = ''
       for (let i = 0; i < movies.length; i++) {
         const movie = movies[i]
-        contentHtml += '<div class="col-lg-4 col-sm-6 movie-cart">'
-        contentHtml += '<a class="pointer">'
-        contentHtml += '<img class="img-thumbnail" src="http://image.tmdb.org/t/p/w500/' + movie.poster_path + '">'
-        contentHtml += '<h5 class="light-blue">' + movie.title + '</h5>'
+        const name = movie.title ? movie.title : movie.name
+        contentHtml += '<div onclick="getDetail(' + "'" + name + "'" + ')" class="col-lg-4 col-sm-6 movie-cart">'
+        contentHtml += '<a onclick="getDetail(' + "'" + name + "'" + ')" class="pointer">'
+        contentHtml += '<img onclick="getDetail(' + "'" + name + "'" + ')" class="img-thumbnail" src="http://image.tmdb.org/t/p/w500/' + movie.poster_path + '">'
+        contentHtml += '<h5 class="light-blue">' + name + '</h5>'
         contentHtml += '<p class="movie-overview">' + movie.overview + '</p>'
         contentHtml += '<a>'
         contentHtml += '</div>'

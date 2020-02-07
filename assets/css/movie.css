@@ -160,3 +160,7 @@ body {
   display: flex;
   justify-content: center;
 }
+
+#favourite-movies {
+  margin-top: 80px;
+}
