@@ -33,6 +33,7 @@ function signOut() {
 const hideWhenSearch = () => {
   $('#movie-carousel').hide()
   $('#popular-container').hide()
+  $('#gsignin').hide()
 }
 
 const showHomePage = () => {
@@ -62,6 +63,7 @@ let page = 1
 let pageSearch = 1
 $(document).ready(() => {
   $('#gsignin').hide()
+  $('#loader').hide()
   $('#result-search-movie').hide()
   renderCarousel(page)
   $('#movie-carousel').carousel()
@@ -94,8 +96,10 @@ $(document).ready(() => {
 
   $('#navbar-login').on('click', (e) => {
     e.preventDefault()
+    window.history.pushState({}, '', '/')
     loginPage()
   })
+
 })
 
 

@@ -51,15 +51,25 @@ const getPopularMovies = (page) => {
 }
 
 const searchMovie = (title, page) => {
+  window.history.replaceState({}, '', '/');
+  $('#loader').show()
   page = page ? page : 1
+  let data
   $.ajax({
     url: `http://localhost:3000/movies/search/${page}?title=${title}`,
     method: 'GET'
   })
     .then(movies => {
+      data = movies
       movies = movies.results
       let contentHtml = ''
       if (movies.length) {
+        contentHtml += '<div id="result-movie">'
+        contentHtml += '<h1 class="findHeader">'
+        contentHtml += 'Results for '
+        contentHtml += '<span class="findSearchTerm">' + title + '</span>'
+        contentHtml += '</h1>'
+        contentHtml += '</div>'
         for (let i = 0; i < movies.length; i++) {
           const movie = movies[i]
           contentHtml += '<div class="media text-muted pt-3">'
@@ -81,14 +91,31 @@ const searchMovie = (title, page) => {
           contentHtml += '</div>'
           contentHtml += '</div>'
         }
+
+        contentHtml += '<div id="pagination-search"></div>'
       } else {
         if (page === 1 && !movies.length) {
           contentHtml += `<h1>Sorry we don't find your movies</h1>`
         }
       }
-      $('#result-movie').html(contentHtml)
+      $('#loader').hide()
+      $('#result-search-movie').html(contentHtml)
+      if (data.total_results > 0) {
+        $('#pagination-search').pagination({
+          items: data.total_results,
+          itemsOnPage: 20,
+          cssStyle: 'light-theme',
+          currentPage: page,
+          onPageClick: (page, event) => {
+            searchMovie(title, page)
+            if (page === 1) {
+              window.location.hash = ''
+            }
+          }
+        })
+      }
     })
     .catch(err => {
-      $('#result-movie').html('')
+      $('#result-search-movie').html('')
     })
 }
