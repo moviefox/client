@@ -51,6 +51,7 @@ const getPopularMovies = (page) => {
 }
 
 const searchMovie = (title, page) => {
+  title = title.trim()
   window.history.replaceState({}, '', '/');
   $('#loader').show()
   page = page ? page : 1
