@@ -120,3 +120,26 @@ const searchMovie = (title, page) => {
       $('#result-search-movie').html('')
     })
 }
+
+//fetching cinema list
+const cinemaList = (city => {
+  city = city.toLowerCase() //dapet dari click
+  console.log(city, 'di function')
+  $.ajax({
+    method: 'get',
+    url: `http://localhost:3000/movies/bioskop/${city}`
+  })
+    .done(cinemas => {
+      let cineLink = ''
+      for (let i=0; i<cinemas.length; i++) {
+        cineLink += `<li class="list-group-item"><a href="${cinemas[i].url}">${cinemas[i].title}</a></li>`
+      }
+      console.log(cinemas)
+      $('#cinemas').append(cineLink)
+    })
+
+    .fail(err => {
+      console.log(err)
+      $('#cienemas').append('')
+    })
+})

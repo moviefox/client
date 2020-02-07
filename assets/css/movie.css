@@ -160,3 +160,11 @@ body {
   display: flex;
   justify-content: center;
 }
+
+#cinema-list {
+  margin-top: 30px;
+}
+
+#cinema-list h3 {
+  text-align: center;
+}

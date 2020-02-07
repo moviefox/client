@@ -117,6 +117,13 @@ $(document).ready(() => {
     $('#navbarDropdown').hide()
   })
 
+  $('#jakarta').on('click', (e) => {
+    e.preventDefault()
+    let city = e.currentTarget.id
+    console.log('masuk', city);
+    cinemaList(city)
+  })
+
 })
 
 
