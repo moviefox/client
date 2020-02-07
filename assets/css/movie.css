@@ -122,3 +122,41 @@ body {
   font-size: 17px;
   font-weight: bold;
 }
+
+.loader {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  height: 99999px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,.7);
+}
+
+.img-loader {
+  position: relative;
+  top: 250px;
+  left: 50%;
+  margin-left: -26px;
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  background: #1a1a1a;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+#pagination-search {
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
