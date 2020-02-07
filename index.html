@@ -31,7 +31,7 @@
 							username
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#">Favorites</a>
+							<a id="movie-favourites" class="dropdown-item" href="#">Favorites</a>
 							<div class="dropdown-divider"></div>
 							<a id="navbar-logout" class="dropdown-item" href="#">Logout</a>
 						</div>
@@ -63,92 +63,118 @@
 		</div>
 
 
-  <!-- google sign in -->
-  <div id="gsignin" class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-      <div class="d-flex justify-content-center">
-        <div class="card text-center bg-light" id="signinCard">
-          <div class="card-body">
-            <h1 class="card-title" id="moviefox">MOVIEFOX</h1>
-            <img src="https://www.freepnglogos.com/uploads/fox-png-23.png" class="rounded mx-auto d-block" alt="logo">
-            <p class="card-text">Use Google account for simple sign in</p>
-            <div class="d-flex justify-content-center">
-              <div class="g-signin2" data-onsuccess="onSignIn"></div>
-            </div>
-            <p class="mt-5 mb-3 text-muted">MOVIEFOX made by Hansin, Haekal, Ridza<br>© 2020</p>
-          </div>
-        </div>
-      </div>
-      <a href="#" onclick="signOut();">Google Sign out test</a>
-    </div>
-    <div class="col-md-3"></div>
-  </div>
+		<div id="favourite-movies" class="container">
+			<table class="table">
+				<thead>
+					<th>Title</th>
+					<th>Year</th>
+					<th>Poster</th>
+					<th>Plot</th>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
 
-  <!-- movie details -->
-  <div class="row justify-content-md-center" id="movie-details">
-    <div class="col-md-8">
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title" id="movie-title">MOVIE TITLE</h3>
-        </div>
+		<!-- google sign in -->
+		<div id="gsignin" class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<div class="d-flex justify-content-center">
+					<div class="card text-center bg-light" id="signinCard">
+						<div class="card-body">
+							<h1 class="card-title" id="moviefox">MOVIEFOX</h1>
+							<img src="https://www.freepnglogos.com/uploads/fox-png-23.png" class="rounded mx-auto d-block" alt="logo">
+							<p class="card-text">Use Google account for simple sign in</p>
+							<div class="d-flex justify-content-center">
+								<div class="g-signin2" data-onsuccess="onSignIn"></div>
+							</div>
+							<p class="mt-5 mb-3 text-muted">MOVIEFOX made by Hansin, Haekal, Ridza<br>© 2020</p>
+						</div>
+					</div>
+				</div>
+				<a href="#" onclick="signOut();">Google Sign out test</a>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
 
-        <div class="card-body">
-          <!-- poster and trailers -->
-          <div class="row" id="media">
-            <div class="col-md-3" id="poster">
-              <img src="https://m.media-amazon.com/images/M/MV5BMzQ3NTQxMjItODBjYi00YzUzLWE1NzQtZTBlY2Y2NjZlNzkyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UX182_CR0,0,182,268_AL_.jpg" alt="Movie Poster">
-            </div>
-            <div class="col-md-9" id="trailer">
-              <iframe width="100%" height="270px"
-                src="https://www.youtube.com/embed/x3HbbzHK5Mc">
-              </iframe>
-            </div>
-          </div>
+		<!-- movie details -->
+		<div class="row justify-content-md-center" id="movie-details">
+			<div class="col-md-8">
+				<div class="card">
+					<div class="card-header">
+						<h3 class="card-title" id="movie-title">MOVIE TITLE</h3>
+					</div>
 
-          <!-- description -->
-          <div class="row justify-content-md-center">
-            <div class="col-md-11">
+					<div
+						class="card-body">
+						<!-- poster and trailers -->
+						<div class="row" id="media">
+							<div class="col-md-3" id="poster">
+								<img src="https://m.media-amazon.com/images/M/MV5BMzQ3NTQxMjItODBjYi00YzUzLWE1NzQtZTBlY2Y2NjZlNzkyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UX182_CR0,0,182,268_AL_.jpg" alt="Movie Poster">
+							</div>
+							<!--
+																																											<div class="col-md-9 hide" id="trailer">
+																																												<iframe width="100%" height="270px" src="https://www.youtube.com/embed/x3HbbzHK5Mc"></iframe>
+																																											</div>
+																																										-->
+						</div>
 
-              <div id="rating-row" class="row justify-content-md-center">
-                <div id="imdb" class="col-md-4">
-                  <div class="row">
-                    <div class="col-md-5">
-                      <img src="https://img.icons8.com/color/48/000000/imdb.png" alt="imdb">
-                    </div>
-                    <div class="col-md-7" id="imdb-score">
-                      <h1>8.0</h1>
-                    </div>
-                  </div>
-                </div>
-                <div id="rotten" class="col-md-4">
-                  <div class="row">
-                    <div class="col-md-5 align-middle">
-                      <img src="https://www.pngitem.com/pimgs/m/443-4435876_rotten-tomatoes-png-logo-transparent-png.png" width="auto" height="48" alt="rotten tomatoes">
-                    </div>
-                    <div class="col-md-7" id="rotten-score">
-                      <h1>100%</h1>
-                    </div>
-                  </div>
-                </div>
-              </div>
+						<!-- description -->
+						<div class="row justify-content-md-center">
+							<div class="col-md-11">
 
-              <div id="description">
-                <p>
-                  <b>Year: </b>2020 <br>
-                  <b>Plot: </b> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-              </div>
-              
-              <div id="faovorite-btn">
-                <button type="button" class="btn btn-dark btn-outline-success btn-lg"><i class="fa fa-star"></i> Add to favorites</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+								<div id="rating-row" class="row justify-content-md-center">
+									<div id="imdb" class="col-md-4">
+										<div class="row">
+											<div class="col-md-5">
+												<img src="https://img.icons8.com/color/48/000000/imdb.png" alt="imdb">
+											</div>
+											<div class="col-md-7" id="imdb-score">
+												<h1>8.0</h1>
+											</div>
+										</div>
+									</div>
+									<div id="rotten" class="col-md-4">
+										<div class="row">
+											<div class="col-md-5 align-middle">
+												<img src="https://www.pngitem.com/pimgs/m/443-4435876_rotten-tomatoes-png-logo-transparent-png.png" width="auto" height="48" alt="rotten tomatoes">
+											</div>
+											<div class="col-md-7" id="rotten-score">
+												<h1>100%</h1>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div id="description">
+									<p>
+										<b>Year:
+										</b>
+										<span id="movie-year">2020</span>
+										<br>
+										<b>Plot:
+										</b>
+										<span id="movie-plot">
+											Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+										</span>
+									</p>
+								</div>
+
+								<div id="favourite-btn">
+									<button id="btn-favourite-movies" type="button" class="btn btn-dark btn-outline-success btn-lg">
+										<i class="fa fa-star"></i>
+										Add to favorites</button>
+
+									<button id="login-first" type="button" class="btn btn-dark btn-outline-danger btn-lg">
+										<i class="fa fa-user"></i>
+										Please login first</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<div id="popular-container" class="container">
 			<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
