@@ -62,6 +62,7 @@ const searchMovie = (title, page) => {
     .then(movies => {
       data = movies
       movies = movies.results
+      console.log(data)
       let contentHtml = ''
       if (movies.length) {
         contentHtml += '<div id="result-movie">'
