@@ -1,30 +1,28 @@
 //google sign in
 function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile()
-  var id_token = googleUser.getAuthResponse().id_token
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-
-  $.ajax('http://localhost:3000/???????????????????????????????????', {
+  const id_token = googleUser.getAuthResponse().id_token
+  $.ajax('http://localhost:3000/users/gSign', {
     method: 'POST',
-    headers: { id_token }
+    headers: {
+      token: id_token
+    }
   })
     .done(response => {
-      //terima token
-      //terima nama user
-      //show content
+      localStorage.token = response.token
+      $('#navbar-login').hide()
+      $('#navbarDropdown').show()
+      $('#navbarDropdown').text(response.name)
+      $('#gsignin').hide()
+      showHomePage()
     })
     .fail(err => {
       signOut()
-      console.log(err)
     })
 }
 
 //google sign out
 function signOut() {
-  var auth2 = gapi.auth2.getAuthInstance();
+  const auth2 = gapi.auth2.getAuthInstance();
   auth2.signOut().then(function () {
     console.log('User signed out.');
   });
@@ -62,6 +60,16 @@ const renderSearchMovie = () => {
 let page = 1
 let pageSearch = 1
 $(document).ready(() => {
+
+  if (localStorage.token) {
+    $('#navbarDropdown').show()
+    $('#navbar-login').hide()
+  } else {
+    $('#navbarDropdown').hide()
+    $('#navbar-login').show()
+  }
+
+
   $('#gsignin').hide()
   $('#loader').hide()
   $('#result-search-movie').hide()
@@ -98,6 +106,15 @@ $(document).ready(() => {
     e.preventDefault()
     window.history.pushState({}, '', '/')
     loginPage()
+  })
+
+  $('#navbar-logout').on('click', (e) => {
+    e.preventDefault()
+    localStorage.clear()
+    signOut()
+    $('#navbar-login').show()
+    $('#navbarDropdown').text('')
+    $('#navbarDropdown').hide()
   })
 
 })
