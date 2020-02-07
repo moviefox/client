@@ -117,6 +117,8 @@ $(document).ready(() => {
     $('#navbarDropdown').hide()
   })
 
+  $('#popular-container').on('click', '.movie-cart', () => {
+  })
 })
 
 
